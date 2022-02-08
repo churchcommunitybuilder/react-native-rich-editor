@@ -21,7 +21,7 @@ export default class RichTextEditor extends Component {
     // };
 
     static defaultProps = {
-        canReinitialize = true,
+        canReinitialize: true,
         contentInset: {},
         style: {},
         placeholder: '',

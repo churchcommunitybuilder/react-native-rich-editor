@@ -165,6 +165,8 @@ export type IconRecord = {
 export class RichEditor extends React.Component<RichEditorProps> {
     // Public API
 
+    onMessage: ({ nativeEvent: { data: string } }) => void
+
     /**
      * @deprecated please use onChange
      */
