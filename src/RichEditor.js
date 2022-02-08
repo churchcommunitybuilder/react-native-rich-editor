@@ -21,6 +21,7 @@ export default class RichTextEditor extends Component {
     // };
 
     static defaultProps = {
+        canReinitialize = true,
         contentInset: {},
         style: {},
         placeholder: '',
@@ -34,6 +35,8 @@ export default class RichTextEditor extends Component {
         editorInitializedCallback: () => {},
         initialHeight: 0,
     };
+
+    isInitialized = false
 
     constructor(props) {
         super(props);
@@ -430,6 +433,8 @@ export default class RichTextEditor extends Component {
     }
 
     init() {
+        if (this.isInitialized && !this.props.canReinitialize) return
+
         let that = this;
         const {initialFocus, initialContentHTML, placeholder, editorInitializedCallback, disabled} = that.props;
         initialContentHTML && that.setContentHTML(initialContentHTML);
@@ -441,6 +446,7 @@ export default class RichTextEditor extends Component {
         initialFocus && !disabled && that.focusContentEditor();
         // no visible ?
         that.sendAction(actions.init);
+        this.isInitialized = true
     }
 
     /**

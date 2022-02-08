@@ -45,6 +45,11 @@ export interface RichEditorProps extends WebViewProps {
     disabled?: boolean;
 
     /**
+     * Allow the editor to reinitialize on web view load
+     */
+    canReinitialize?: boolean
+
+    /**
      * String value to set text auto capitalization.
      * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize
      */
